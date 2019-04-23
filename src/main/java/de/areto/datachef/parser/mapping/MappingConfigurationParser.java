@@ -143,7 +143,7 @@ public class MappingConfigurationParser {
     private void loadCsvType(String csvType) {
         final Optional<CsvType> typeOptional = session.byId(CsvType.class).loadOptional(csvType);
         if(!typeOptional.isPresent()) {
-            final String msg = String.format("Unable to load CsvType '%s'", typeOptional);
+            final String msg = String.format("Unable to load CsvType '%s'", csvType);
             mapping.addIssue(msg);
         } else {
             mapping.setCsvType(typeOptional.get());
