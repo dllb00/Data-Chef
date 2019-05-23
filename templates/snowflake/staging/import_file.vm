@@ -1,4 +1,5 @@
 #set($table = $mapping.name)##
+#set($name = $mapping.csvType.name)##
 #set($file_path = $vaultConfig.placeholderFilePath())##
 #set($file_name = $vaultConfig.placeholderFileName())##
 #set($encoding = $mapping.csvType.encoding)##
@@ -11,10 +12,14 @@ put file://${file_path} @${dwhConfig.dbName()}.${dwhConfig.snowflakeSchemaNameSt
 
 COPY INTO ${dwhConfig.dbName()}.${dwhConfig.schemaNameRaw()}.${table}
     FROM @${dwhConfig.dbName()}.${dwhConfig.snowflakeSchemaNameStage()}.${dwhConfig.snowflakeStageName()}/${file_name} ## only the file name is needed here?!
+    #if($name == "json")
+    file_format = ( type='json' )
+    #else
     file_format = ( type='csv'
         ENCODING = '${encoding}' ##'UTF-8'
         RECORD_DELIMITER = '${row_sep}' ##'\n' -- ${row_sep}
         FIELD_DELIMITER = '${col_sep}' ##';'
         FIELD_OPTIONALLY_ENCLOSED_BY = '${col_del}' ##'\"'
         SKIP_HEADER = ${skip})
+    #end
 ;

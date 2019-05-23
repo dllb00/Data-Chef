@@ -25,7 +25,7 @@ public interface DWHConfig extends Accessible {
     @DefaultValue("com.exasol.jdbc.EXADriver")
     String jdbcDriverClass();
 
-    @DefaultValue("true")
+    @DefaultValue("false")
     boolean scanAndCheckSupportedDataTypes();
 
     @DefaultValue("jdbc:exa:127.0.0.1:8563")

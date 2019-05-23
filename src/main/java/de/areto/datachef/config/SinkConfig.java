@@ -33,7 +33,7 @@ public interface SinkConfig extends Accessible {
     @DefaultValue("mart")
     String martFileExtension();
 
-    @DefaultValue("csv,txt")
+    @DefaultValue("csv,txt,json")
     List<String> dataFileExtensions();
 
     @DefaultValue("german_csv")

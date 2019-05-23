@@ -62,16 +62,6 @@ services:
     volumes:
       - repo_volume:/var/lib/mysql
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - data-chef-network
-    links:
-      - mariadb
-
   exasol:
     image: exasol/docker-db
     restart: always
