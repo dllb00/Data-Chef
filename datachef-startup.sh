@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 CONFIG_DIR=config
 SINK_DIR=sink
 DWH_CONFIG=$CONFIG_DIR/dwh.config.properties
 REPOSITORY_CONFIG=$CONFIG_DIR/repository.config.properties
 TEMPLATE_CONFIG=$CONFIG_DIR/template.config.properties
+DATAVAULT_CONFIG=$CONFIG_DIR/datavault.config.properties
 rm -rf $CONFIG_DIR
 mkdir $CONFIG_DIR
 
@@ -29,6 +30,14 @@ do
   varname=`echo $envname | cut -f3 -d"_"`
   content=`echo $line | cut -f2- -d"="`
   if ! [ -z ${content} ]; then echo ${varname}=${content} >> $TEMPLATE_CONFIG; fi
+done
+
+printenv | grep ^ENV_DATAVAULT | while read line
+do
+  envname=`echo $line | cut -f1 -d"="`
+  varname=`echo $envname | cut -f3 -d"_"`
+  content=`echo $line | cut -f2- -d"="`
+  if ! [ -z ${content} ]; then echo ${varname}=${content} >> $DATAVAULT_CONFIG; fi
 done
 
 echo "Configs created"

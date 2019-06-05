@@ -33,6 +33,7 @@ services:
       - ENV_TEMPLATE_templatePath=${TEMPLATE_TEMPLATEPATH}
       - ENV_TEMPLATE_enablePreRunScript=${TEMPLATE_ENABLEPRERUNSCRIPT}
       - ENV_TEMPLATE_enablePostRunScript=${TEMPLATE_ENABLEPOSTRUNSCRIPT}
+      - ENV_DATAVAULT_loadDateEndInfinityValue=${DATAVAULT_LOADDATEENDINFINITYVALUE}
     build:
       context: .
       dockerfile: Dockerfile
