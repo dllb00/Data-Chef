@@ -41,9 +41,9 @@ do
 done
 
 echo "Configs created"
-COUNT=`find ${SINK_DIR} -maxdepth 1 -type f -printf '%f\n' | wc -l`
+COUNT=$(find ${SINK_DIR} -maxdepth 1 -type f -printf '%f\n' | wc -l)
 echo "# files in sink: $COUNT"
-if [$COUNT -gt 0 ] ; then
+if [ $COUNT -gt 0 ] ; then
 	echo "Files in sink directory detected, aborting startup!";
 	exit 1;
 fi
