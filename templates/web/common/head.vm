@@ -122,6 +122,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/upload" #if($active == "upload")class="active"#end>
+                            <i class="fa fa-download fa-fw"></i> Upload
+                        </a>
+                    </li>
+                    <li>
                         <a href="/deploy" #if($active == "deploy")class="active"#end>
                             <i class="fa fa-download fa-fw"></i> Deploy
                         </a>

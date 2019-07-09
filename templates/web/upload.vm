@@ -1,0 +1,33 @@
+#set($page_name = "Upload")
+#parse('common/head.vm')
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Upload</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Search file to upload on your computer</div>
+            <div class="panel-body">
+                <div class="form-group">
+                	<form method='post' enctype='multipart/form-data'>
+                  
+                    
+                        <input type="file" class="filestyle" id="upload-file-field" name='uploaded_file' placeholder="document.csv" data-btnClass="btn-primary">
+                       
+                
+                    
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary" id="upload-btn-trigger"><i class="glyphicon glyphicon-download"></i> Upload</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+#parse('common/foot.vm')

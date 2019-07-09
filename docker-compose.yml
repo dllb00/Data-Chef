@@ -60,6 +60,8 @@ services:
       MYSQL_PASSWORD: datachef
     networks:
       - data-chef-network
+    ports:
+      - 3306:3306
     volumes:
       - repo_volume:/var/lib/mysql
 

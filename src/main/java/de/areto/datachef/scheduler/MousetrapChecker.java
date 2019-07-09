@@ -11,7 +11,7 @@ import org.knowm.sundial.exceptions.JobInterruptException;
 public class MousetrapChecker extends Job {
     @Override
     public void doRun() throws JobInterruptException {
-        if(log.isDebugEnabled()) log.debug("Checking Mousetraps...");
+        //if(log.isDebugEnabled()) log.debug("Checking Mousetraps...");
         Application.get().getWorkerService().getMousetrapController().checkTraps();
     }
 }
