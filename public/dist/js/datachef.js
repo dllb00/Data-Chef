@@ -393,7 +393,8 @@ function deploySearch() {
             deploy_data = data;
 
             for(var fNo in data) {
-                var path = data[fNo].replace(q, '');
+                //var path = data[fNo].replace(q, '');
+                var path = data[fNo];
                 var row = [path];
                 file_table.row.add(row);
             }

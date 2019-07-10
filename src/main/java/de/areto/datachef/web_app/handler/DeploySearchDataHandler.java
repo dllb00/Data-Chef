@@ -68,6 +68,7 @@ public class DeploySearchDataHandler extends RouteHandler {
     }
 
     private List<String> findMappings(@NonNull Path path) throws IOException {
+    	log.debug("Searching for mappings in " + path.toAbsolutePath().toString());
         Predicate<Path> hasMappingExtension = p -> p.toString().endsWith(sinkConfig.mappingFileExtension())
                                                 || p.toString().endsWith(sinkConfig.martFileExtension());
 
@@ -80,6 +81,7 @@ public class DeploySearchDataHandler extends RouteHandler {
     }
 
     private List<String> findDataFiles(@NonNull Path path) throws IOException {
+    	log.debug("Searching for data files in " + path.toAbsolutePath().toString());
         final Set<String> suppDataExt = new HashSet<>(sinkConfig.dataFileExtensions());
 
         return Files.walk(path)

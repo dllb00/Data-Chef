@@ -14,6 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
 import javax.servlet.http.Part;
@@ -32,6 +35,19 @@ public class UploadFileHandler extends RouteHandler {
 
 			InputStream input = request.raw().getPart("uploaded_file").getInputStream(); 
 			String targetFileName = getFileName(request.raw().getPart("uploaded_file"));
+			boolean isCsv = targetFileName.toLowerCase().contains(".csv");
+			
+			String selectedMapping = request.queryParams("selected_mapping");
+			
+			log.debug("targetFileName: " + targetFileName + " / selectedMapping: " + selectedMapping);
+			
+			if(isCsv) {
+				LocalDate localDate = LocalDate.now();
+				String localDateString = DateTimeFormatter.ofPattern("yyyyMMdd").format(localDate);
+				targetFileName = selectedMapping + "." + localDateString + ".csv";
+				log.debug("new targetFileName: " + targetFileName + " / selectedMapping: " + selectedMapping);
+			}
+			
 			Files.copy(input, Paths.get(uploadDir.toPath().toString(), targetFileName), StandardCopyOption.REPLACE_EXISTING);
 
 			return "";

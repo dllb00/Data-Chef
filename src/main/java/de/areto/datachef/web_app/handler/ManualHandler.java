@@ -13,10 +13,10 @@ import java.util.Map;
 import org.hibernate.Session;
 
 @WebRoute(
-        path = "/upload",
-        template = "upload.vm"
+        path = "/manual",
+        template = "manual.vm"
 )
-public class UploadHandler extends TemplateRouteHandler {
+public class ManualHandler extends TemplateRouteHandler {
     @Override
     public Map<String, Object> createContext(Request request, Response response) throws Exception {
 
@@ -29,7 +29,7 @@ public class UploadHandler extends TemplateRouteHandler {
             final List<String> query = session.createQuery(qRows).list();
 
              Map<String, Object> results = new HashMap<>();
-             results.put("active", "upload");
+             results.put("active", "manual");
              results.put("mappings", query);
              
              return results;
