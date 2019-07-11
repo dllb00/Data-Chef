@@ -31,24 +31,42 @@ public class EditHandler extends TemplateRouteHandler {
 
             
             List<String> columns = new ArrayList<>();
-            columns.add("c1");
-            columns.add("c2");
-            columns.add("c3");
+            columns.add("Kostenstelle");
+            columns.add("Datum");
+            columns.add("Umsatz");
             
             List<String> cells1 = new ArrayList<>();
-            cells1.add("cell1");
-            cells1.add("cell2");
-            cells1.add("cell3");
+            cells1.add("1099");
+            cells1.add("20.06.2019");
+            cells1.add("36.98");
             
             List<String> cells2 = new ArrayList<>();
-            cells2.add("cell21");
-            cells2.add("cell22");
-            cells2.add("cell23");
+            cells2.add("1099");
+            cells2.add("20.06.2019");
+            cells2.add("122.60");
+            
+            List<String> cells3 = new ArrayList<>();
+            cells3.add("2077");
+            cells3.add("20.06.2019");
+            cells3.add("2.40");
+            
+            List<String> cells4 = new ArrayList<>();
+            cells4.add("2077");
+            cells4.add("20.06.2019");
+            cells4.add("152.80");
+            
+            List<String> cells5 = new ArrayList<>();
+            cells5.add("2077");
+            cells5.add("20.06.2019");
+            cells5.add("12.50");
             
             List<List<String>> rows = new ArrayList<>();
             
             rows.add(cells1);
             rows.add(cells2);
+            rows.add(cells3);
+            rows.add(cells4);
+            rows.add(cells5);
             
             
              Map<String, Object> results = new HashMap<>();

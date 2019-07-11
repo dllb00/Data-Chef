@@ -16,7 +16,7 @@
                 	<form method='post' enctype='multipart/form-data'>
                   
                     
-                        <input type="file" class="filestyle" id="upload-file-field" name='uploaded_file' placeholder="document.csv" data-btnClass="btn-primary">
+                        <input type="file" class="filestyle" id="upload-file-field" name='uploaded_file' placeholder="document.csv" data-btnClass="btn-primary" onchange="if(document.getElementById('upload-file-field').value.endsWith('.sink')) $('#upload-btn-trigger').removeAttr('disabled')">
                        
                 
                     
@@ -25,13 +25,14 @@
             <div class="panel-footer">
             	<div class="form-group">
 				    <label for="select-mapping">Select Mapping</label>
-				    <select class="form-control" id="select-mapping" name='selected_mapping'>
+				    <select class="form-control" id="select-mapping" name='selected_mapping' onchange="$('#upload-btn-trigger').removeAttr('disabled')">
+				      <option hidden disabled selected value> -- select a mapping -- </option>
 				      #foreach( $mapping-name in $mappings )
 					    <option>$mapping-name</option>
 					  #end
 				    </select>
 				</div>
-                <button class="btn btn-primary" id="upload-btn-trigger"><i class="glyphicon glyphicon-download"></i> Upload</button>    
+                <button class="btn btn-primary" id="upload-btn-trigger" disabled><i class="glyphicon glyphicon-download"></i> Upload</button> 
             </div>
             </form>
         </div>

@@ -14,7 +14,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="deploy-search-field" placeholder="/some/folder">
+                        <input type="text" class="form-control" id="deploy-search-field" placeholder="upload" value="upload">
                         <div class="input-group-btn">
                             <button class="btn btn-primary" id="deploy-btn-search" onclick="deploySearch()"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <button class="btn btn-primary" id="deploy-btn-trigger" onclick="deployTrigger()" disabled><i class="glyphicon glyphicon-download"></i> Deploy</button>
+                <button class="btn btn-primary" id="deploy-btn-trigger" onclick="deployTrigger()" disabled><i class="glyphicon glyphicon-download"></i> Deploy All</button>
             </div>
         </div>
     </div>

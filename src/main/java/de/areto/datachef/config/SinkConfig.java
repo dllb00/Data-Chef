@@ -17,6 +17,9 @@ public interface SinkConfig extends Accessible {
 
     @DefaultValue("./sink")
     String path();
+    
+    @DefaultValue("./upload")
+    String uploadPath();
 
     @DefaultValue("./sink/served")
     String dirServed();

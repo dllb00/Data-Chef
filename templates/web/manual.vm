@@ -11,6 +11,7 @@
 
     <div class="col-lg-12">
         <div class="panel panel-default">
+        <form method='post'>	
 
 			<div class="panel-footer">
 			
@@ -25,12 +26,27 @@
 				    				
 				    
 				        <div class="input-group-btn">
-                            		<button class="btn btn-primary" id="btn-filter-$column"><i class="glyphicon glyphicon-search"></i></button>
+                            		<button class="btn btn-primary" id="btn-select-mapping"><i class="glyphicon glyphicon-search"></i></button>
                         		</div>
                     		</div>
-                    		</div>	
-                    
+                    		
+                    	#if ($columns.size() > 0)
+                    		<h1>$mapping</h1>
+                    		#foreach( $column-name in $columns )
+             					<div class="input-group">
+             						<label for="input-$column-name">$column-name</label>
+					    			<input class="form-control" id="input-$column-name" type="text" value=""></input>
+					     		</div>
+					  		#end
+                    		<button type="button" class="btn btn-primary">Insert Data</button>
+                    	#end
+                    		</div>
+                    		
+                    		
+                   
             </div>
+            
+            </form>
             
         </div>
     </div>

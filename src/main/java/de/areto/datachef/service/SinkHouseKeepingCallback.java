@@ -55,13 +55,18 @@ class SinkHouseKeepingCallback implements FutureCallback<WorkerCargo> {
     private void transport(Path target) throws IOException {
         checkState(Files.isDirectory(target), "Target must be a directory");
         final Path sinkPath = Paths.get(sinkConfig.path());
+        final Path absoluteUploadPath = Paths.get(sinkConfig.uploadPath()).toAbsolutePath().normalize();
         final Path mappingFolder = Paths.get(target.toString(), file.getMappingName());
 
         if (!Files.exists(mappingFolder)) Files.createDirectories(mappingFolder);
 
         final String fileName = file.getPath().getFileName().toString();
         final Path targetFile = Paths.get(mappingFolder.toString(), fileName);
-        boolean move = file.getPath().startsWith(sinkPath);
+        
+        boolean fileStartsWithSinkPath = file.getPath().startsWith(sinkPath);
+        boolean fileStartsWithAbsoluteUploadPath = file.getPath().startsWith(absoluteUploadPath);
+        
+        boolean move = fileStartsWithSinkPath || fileStartsWithAbsoluteUploadPath;
 
         final Path newPath;
 
