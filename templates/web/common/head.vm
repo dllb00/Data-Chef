@@ -142,9 +142,6 @@
                             <i class="fa fa-download fa-fw"></i> Deploy
                         </a>
                     </li>
-                    <li style="border-top:2px solid #00b0e8">
-                	  <center><img src="/img/logo.png" width="150"></center>
-                	  </li>
                 </ul>
             </div>
             #if($active == "served")
