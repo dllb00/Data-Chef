@@ -58,9 +58,10 @@ class PathProcessor implements Callable<SinkFile> {
 
     private boolean isChecksumProcessed(@NonNull SinkFile file) {
         final Session session = HibernateUtility.getSessionFactory().openSession();
-        final String csQuery = "select count(*) from WorkerCargo w where w.checkSum = :checksum";
+        final String csQuery = "select count(*) from WorkerCargo w where w.checkSum = :checksum and w.name = :name";
         final Long csCount = session.createQuery(csQuery, Long.class)
                 .setParameter("checksum", file.getCheckSum())
+                .setParameter("name", file.getMappingName())
                 .getSingleResult();
         session.close();
         final boolean duplicate = csCount == 1;
