@@ -56,6 +56,6 @@ replace into DataDomain(name,sqlType,defaultValue) values ('json','variant',NULL
 
 replace INTO `CsvType` (`name`, `columnDelimiter`, `columnSeparator`, `encoding`, `rejectLimit`, `rowSeparator`, `skip`) VALUES ('default_csv','\"',',','UTF-8',50,'\\n',1);
 replace INTO `CsvType` (`name`, `columnDelimiter`, `columnSeparator`, `encoding`, `rejectLimit`, `rowSeparator`, `skip`) VALUES ('german_csv','\"',';','UTF-8',50,'\\n',1);
-replace INTO `CsvType` (`name`, `columnDelimiter`, `columnSeparator`, `encoding`, `rejectLimit`, `rowSeparator`, `skip`) VALUES ('json',NULL,NULL,NULL,NULL,NULL,NULL);
+replace INTO `CsvType` (`name`, `columnDelimiter`, `columnSeparator`, `encoding`, `rejectLimit`, `rowSeparator`, `skip`) VALUES ('json',NULL,NULL,NULL,0,NULL,0);
 
 replace INTO `User` (`username`, `passwordHash`, `role`) VALUE ('admin', '21232f297a57a5a743894a0e4a801fc3', 'ADMIN');
